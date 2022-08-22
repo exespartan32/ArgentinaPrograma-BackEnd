@@ -13,33 +13,44 @@ import javax.validation.constraints.NotBlank;
 public class dtoExperiencia {
 
     @NotBlank
-    private String nombreE;
+    private String nombreExperiencia;
     @NotBlank
-    private String descripcionE;
+    private String descripcionExperiencia;
+    
+    private String imagenExperiencia;
 
-    //Constructores
+    // constructor
     public dtoExperiencia() {
     }
-
-    public dtoExperiencia(String nombreE, String descripcionE) {
-        this.nombreE = nombreE;
-        this.descripcionE = descripcionE;
-    }
     
-    //Getters & Setters
-    public String getNombreE() {
-        return nombreE;
+    public dtoExperiencia(String nombreExperiencia, String descripcionExperiencia, String imagenExperiencia) {
+        this.nombreExperiencia = nombreExperiencia;
+        this.descripcionExperiencia = descripcionExperiencia;
+        this.imagenExperiencia = imagenExperiencia;
     }
 
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
+    // Getters & Setters
+    public String getNombreExperiencia() {
+        return nombreExperiencia;
     }
 
-    public String getDescripcionE() {
-        return descripcionE;
+    public void setNombreExperiencia(String nombreExperiencia) {
+        this.nombreExperiencia = nombreExperiencia;
     }
 
-    public void setDescripcionE(String descripcionE) {
-        this.descripcionE = descripcionE;
+    public String getDescripcionExperiencia() {
+        return descripcionExperiencia;
+    }
+
+    public void setDescripcionExperiencia(String descripcionExperiencia) {
+        this.descripcionExperiencia = descripcionExperiencia;
+    }
+
+    public String getImagenExperiencia() {
+        return imagenExperiencia;
+    }
+
+    public void setImagenExperiencia(String imagenExperiencia) {
+        this.imagenExperiencia = imagenExperiencia;
     }
 }

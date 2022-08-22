@@ -30,7 +30,7 @@ public class Persona {
     @Size(min = 1, max = 50, message = "no cumple con la longitud especificada")
     private String apellido;
 
-    @Size(min = 1, max = 50, message = "no cumple con la longitud especificada")
+    //@Size(min = 1, max = 50, message = "no cumple con la longitud especificada")
     private String img;
 
     // Getters & Setters
@@ -65,6 +65,4 @@ public class Persona {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-
 }

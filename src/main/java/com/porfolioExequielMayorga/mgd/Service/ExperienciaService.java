@@ -34,8 +34,8 @@ public class ExperienciaService {
     }
 
     // busca y devuelbe una experiencia por nombre
-    public Optional<Experiencia> getByNombreE(String nombreE) {
-        return rExperiencia.findByNombreE(nombreE);
+    public Optional<Experiencia> getByNombreE(String nombre_exp) {
+        return rExperiencia.findByNombreExperiencia(nombre_exp);
     }
 
     // guarda una experiencia
@@ -54,7 +54,7 @@ public class ExperienciaService {
     }
 
     // compuebua si ya existe experiencia por nombre
-    public boolean existsByNombreE(String nombreE) {
-        return rExperiencia.existsByNombreE(nombreE);
+    public boolean existsByNombreE(String nombre_exp) {
+        return rExperiencia.existsByNombreExperiencia(nombre_exp);
     }
 }

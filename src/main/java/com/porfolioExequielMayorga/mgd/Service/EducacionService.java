@@ -28,14 +28,14 @@ public class EducacionService {
         return rEducacion.findAll();
     }
 
-    // busca y devuelbe un esstudio por id
+    // busca y devuelbe un estudio por id
     public Optional<Educacion> getOne(int id) {
         return rEducacion.findById(id);
     }
 
     // busca y devuelbe una educacion por nombre
-    public Optional<Educacion> getByNombreE(String nombreE) {
-        return rEducacion.findByNombreE(nombreE);
+    public Optional<Educacion> getByNombreE(String nombre_edu) {
+        return rEducacion.findByNombreEducacion(nombre_edu);
     }
 
     // guarda una educacion
@@ -54,7 +54,7 @@ public class EducacionService {
     }
 
     // compuebua si ya existe educacion por id
-    public boolean existsByNombreE(String nombreE) {
-        return rEducacion.existsByNombreE(nombreE);
+    public boolean existsByNombreE(String nombre_edu) {
+        return rEducacion.existsByNombreEducacion(nombre_edu);
     }
 }

@@ -19,19 +19,20 @@ public class Experiencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nombreE;
-    private String descripcionE;
-    
-    //Constructores
+    private String nombreExperiencia;
+    private String descripcionExperiencia;
+    private String imagenExperiencia;
 
+    //Constructores
     public Experiencia() {
     }
 
-    public Experiencia(String nombreE, String descripcionE) {
-        this.nombreE = nombreE;
-        this.descripcionE = descripcionE;
+    public Experiencia(String nombreExperiencia, String descripcionExperiencia, String imagenExperiencia) {
+        this.nombreExperiencia = nombreExperiencia;
+        this.descripcionExperiencia = descripcionExperiencia;
+        this.imagenExperiencia = imagenExperiencia;
     }
-    
+
     //Getters and setters
     public int getId() {
         return id;
@@ -41,19 +42,27 @@ public class Experiencia {
         this.id = id;
     }
 
-    public String getNombreE() {
-        return nombreE;
+    public String getNombreExperiencia() {
+        return nombreExperiencia;
     }
 
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
+    public void setNombreExperiencia(String nombreExperiencia) {
+        this.nombreExperiencia = nombreExperiencia;
     }
 
-    public String getDescripcionE() {
-        return descripcionE;
+    public String getDescripcionExperiencia() {
+        return descripcionExperiencia;
     }
 
-    public void setDescripcionE(String descripcionE) {
-        this.descripcionE = descripcionE;
+    public void setDescripcionExperiencia(String descripcionExperiencia) {
+        this.descripcionExperiencia = descripcionExperiencia;
+    }
+
+    public String getImagenExperiencia() {
+        return imagenExperiencia;
+    }
+
+    public void setImagenExperiencia(String imagenExperiencia) {
+        this.imagenExperiencia = imagenExperiencia;
     }
 }

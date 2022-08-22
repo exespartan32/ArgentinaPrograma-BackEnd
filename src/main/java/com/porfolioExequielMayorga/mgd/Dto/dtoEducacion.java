@@ -12,32 +12,45 @@ import javax.validation.constraints.NotBlank;
  */
 public class dtoEducacion {
 
-    @NotBlank
-    private String nombreE;
-    @NotBlank
-    private String descripcionE;
+	@NotBlank
+	private String nombreEducacion;
+	@NotBlank
+	private String descripcionEducacion;
 
-    public dtoEducacion() {
-    }
+	private String imagenEducacion;
 
-    public dtoEducacion(String nombreE, String descripcionE) {
-        this.nombreE = nombreE;
-        this.descripcionE = descripcionE;
-    }
+	// constructor
+	public dtoEducacion() {
+	}
 
-    public String getNombreE() {
-        return nombreE;
-    }
+	public dtoEducacion(String nombreEducacion, String descripcionEducacion, String imagenEducacion) {
+		this.nombreEducacion = nombreEducacion;
+		this.descripcionEducacion = descripcionEducacion;
+		this.imagenEducacion = imagenEducacion;
+	}
 
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
-    }
+	// Getters & Setters
+	public String getNombreEducacion() {
+		return nombreEducacion;
+	}
 
-    public String getDescripcionE() {
-        return descripcionE;
-    }
+	public void setNombreEducacion(String nombreEducacion) {
+		this.nombreEducacion = nombreEducacion;
+	}
 
-    public void setDescripcionE(String descripcionE) {
-        this.descripcionE = descripcionE;
-    }
+	public String getDescripcionEducacion() {
+		return descripcionEducacion;
+	}
+
+	public void setDescripcionEducacion(String descripcionEducacion) {
+		this.descripcionEducacion = descripcionEducacion;
+	}
+
+	public String getImagenEducacion() {
+		return imagenEducacion;
+	}
+
+	public void setImagenEducacion(String imagenEducacion) {
+		this.imagenEducacion = imagenEducacion;
+	}
 }
