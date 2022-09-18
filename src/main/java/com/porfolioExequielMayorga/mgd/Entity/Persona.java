@@ -29,8 +29,7 @@ public class Persona {
     @NotNull
     @Size(min = 1, max = 50, message = "no cumple con la longitud especificada")
     private String apellido;
-
-    //@Size(min = 1, max = 50, message = "no cumple con la longitud especificada")
+    
     private String img;
 
     // Getters & Setters

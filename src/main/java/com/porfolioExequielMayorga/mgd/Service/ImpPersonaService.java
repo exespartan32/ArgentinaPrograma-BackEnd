@@ -44,4 +44,9 @@ public class ImpPersonaService implements IPersonaService{
         Persona persona = ipersonaRepository.findById(id).orElse(null);
         return persona;
     }
+
+	@Override
+	public boolean existsById(Long id) {
+		return ipersonaRepository.existsById(id);
+	}
 }
