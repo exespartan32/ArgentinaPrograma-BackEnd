@@ -53,7 +53,7 @@ public class EducacionService {
         return rEducacion.existsById(id);
     }
 
-    // compuebua si ya existe educacion por id
+    // compuebua si ya existe educacion por nombre
     public boolean existsByNombreE(String nombre_edu) {
         return rEducacion.existsByNombreEducacion(nombre_edu);
     }

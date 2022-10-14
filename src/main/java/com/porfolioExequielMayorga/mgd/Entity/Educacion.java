@@ -12,67 +12,66 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- *
  * @author usuario
  */
 @Entity
 public class Educacion {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @NotNull
     @Size(min = 1, max = 50, message = "no cumple con la longitud especificada")
-	private String nombreEducacion;
-    
+    private String nombreEducacion;
+
     @NotNull
     @Size(min = 1, max = 50, message = "no cumple con la longitud especificada")
-	private String descripcionEducacion;
-    
-	private String imagenEducacion;
+    private String descripcionEducacion;
 
-	// constructor
-	public Educacion() {
-	}
+    private String imagenEducacion;
 
-	public Educacion(String nombreEducacion, String descripcionEducacion, String imagenEducacion) {
-		super();
-		this.nombreEducacion = nombreEducacion;
-		this.descripcionEducacion = descripcionEducacion;
-		this.imagenEducacion = imagenEducacion;
-	}
+    // constructor
+    public Educacion() {
+    }
 
-	// Setters & Getters
-	public int getId() {
-		return id;
-	}
+    public Educacion(String nombreEducacion, String descripcionEducacion, String imagenEducacion) {
+        super();
+        this.nombreEducacion = nombreEducacion;
+        this.descripcionEducacion = descripcionEducacion;
+        this.imagenEducacion = imagenEducacion;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    // Setters & Getters
+    public int getId() {
+        return id;
+    }
 
-	public String getNombreEducacion() {
-		return nombreEducacion;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setNombreEducacion(String nombreEducacion) {
-		this.nombreEducacion = nombreEducacion;
-	}
+    public String getNombreEducacion() {
+        return nombreEducacion;
+    }
 
-	public String getDescripcionEducacion() {
-		return descripcionEducacion;
-	}
+    public void setNombreEducacion(String nombreEducacion) {
+        this.nombreEducacion = nombreEducacion;
+    }
 
-	public void setDescripcionEducacion(String descripcionEducacion) {
-		this.descripcionEducacion = descripcionEducacion;
-	}
+    public String getDescripcionEducacion() {
+        return descripcionEducacion;
+    }
 
-	public String getImagenEducacion() {
-		return imagenEducacion;
-	}
+    public void setDescripcionEducacion(String descripcionEducacion) {
+        this.descripcionEducacion = descripcionEducacion;
+    }
 
-	public void setImagenEducacion(String imagenEducacion) {
-		this.imagenEducacion = imagenEducacion;
-	}
+    public String getImagenEducacion() {
+        return imagenEducacion;
+    }
+
+    public void setImagenEducacion(String imagenEducacion) {
+        this.imagenEducacion = imagenEducacion;
+    }
 }

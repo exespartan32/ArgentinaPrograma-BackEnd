@@ -8,6 +8,7 @@ import com.porfolioExequielMayorga.mgd.Entity.Persona;
 import com.porfolioExequielMayorga.mgd.Interface.IPersonaService;
 import com.porfolioExequielMayorga.mgd.Repository.IPersonaRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +17,18 @@ import org.springframework.stereotype.Service;
  * @author usuario
  */
 @Service
-public class ImpPersonaService implements IPersonaService{
-    @Autowired IPersonaRepository ipersonaRepository;
-    
+public class ImpPersonaService implements IPersonaService {
+
+    @Autowired
+    IPersonaRepository ipersonaRepository;
+
     // trater una lista de personas
     @Override
     public List<Persona> getPersona() {
         List<Persona> persona = ipersonaRepository.findAll();
         return persona;
     }
-    
+
     // guardar/crear una persona
     @Override
     public void savePersona(Persona persona) {
@@ -45,8 +48,29 @@ public class ImpPersonaService implements IPersonaService{
         return persona;
     }
 
-	@Override
-	public boolean existsById(Long id) {
-		return ipersonaRepository.existsById(id);
-	}
+    // busca si existe esa persona por id
+    @Override
+    public boolean existsById(Long id) {
+        return ipersonaRepository.existsById(id);
+    }
+
+    // busca si existe esa persona por el nombre
+    @Override
+    public boolean existsByNombreP(String nombre) {
+        return ipersonaRepository.existsByNombre(nombre);
+    }
+
+    //busca una persona por ids
+    @Override
+    public Optional<Persona> getOne(Long id) {
+        return ipersonaRepository.findById(id);
+    }
+
+    // busca persona por nombre
+    @Override
+    public Optional<Persona> getByNombreP(String nombre) {
+        return ipersonaRepository.findByNombre(nombre);
+    }
+    
+    
 }

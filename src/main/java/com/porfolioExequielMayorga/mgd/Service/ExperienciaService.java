@@ -48,12 +48,12 @@ public class ExperienciaService {
         rExperiencia.deleteById(id);
     }
 
-    // compuebua si ya existe experiencia por id
+    // comprueba si ya existe experiencia por id
     public boolean existsById(int id) {
         return rExperiencia.existsById(id);
     }
 
-    // compuebua si ya existe experiencia por nombre
+    // comprueba si ya existe experiencia por nombre
     public boolean existsByNombreE(String nombre_exp) {
         return rExperiencia.existsByNombreExperiencia(nombre_exp);
     }
