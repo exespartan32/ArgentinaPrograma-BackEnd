@@ -23,4 +23,7 @@ public interface PerfilInterface {
 
     // compueba si ya existe experiencia por profesion
     public boolean existsByProfesion(String profesion);
+
+    // busca un perfil
+    public Perfil findProfile(Long id);
 }

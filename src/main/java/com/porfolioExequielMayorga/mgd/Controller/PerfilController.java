@@ -16,17 +16,23 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/perfil")
-//@CrossOrigin(origins = "https://front-end-argentina-programa.web.app")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://front-end-argentina-programa.web.app")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class PerfilController {
     @Autowired
     PerfilService perfilService;
 
     // busca y devuelbe todas los perfiles que hay
-    @GetMapping("/lista")
+    @GetMapping("/list")
     public ResponseEntity<List<Perfil>> list() {
         List<Perfil> list = perfilService.list();
         return new ResponseEntity(list, HttpStatus.OK);
+    }
+
+    // traer acerca de por default
+    @GetMapping("/traer/acercaDe")
+    public Perfil findPersona() {
+        return perfilService.findProfile((long) 1);
     }
 
 
@@ -41,7 +47,7 @@ public class PerfilController {
     }
 
     // guarda un perfil
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoPerfil dtoPer, Perfil perfil) {
         if (StringUtils.isBlank(dtoPer.getProfesion())) {
@@ -51,6 +57,9 @@ public class PerfilController {
             return new ResponseEntity(new Mensaje("Este Perfil ya existe"), HttpStatus.BAD_REQUEST);
         }
         perfil = new Perfil(dtoPer.getProfesion(), dtoPer.getAcercaDe());
+
+
+
         perfilService.save(perfil);
         return new ResponseEntity(new Mensaje("Perfil agregado correctamente"), HttpStatus.OK);
     }
@@ -67,7 +76,7 @@ public class PerfilController {
     }
 
     // actualizar perfil
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody dtoPerfil dtoPer) {
         // Validamos si existe el ID
@@ -82,6 +91,15 @@ public class PerfilController {
         Perfil perfil = perfilService.getOne(id).get();
         perfil.setProfesion(dtoPer.getProfesion());
         perfil.setAcercaDe(dtoPer.getAcercaDe());
+
+        System.out.println("------------------------------------");
+        System.out.println("------------------------------------");
+        System.out.println("datos recibidos del FrontEnd");
+        System.out.println(perfil.getId());
+        System.out.println(perfil.getAcercaDe());
+        System.out.println(perfil.getProfesion());
+        System.out.println("------------------------------------");
+        System.out.println("------------------------------------");
 
         perfilService.save(perfil);
         return new ResponseEntity(new Mensaje("Perfil actualizado correctamente"), HttpStatus.OK);

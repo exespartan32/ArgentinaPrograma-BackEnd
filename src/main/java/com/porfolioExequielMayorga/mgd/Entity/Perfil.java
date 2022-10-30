@@ -24,7 +24,7 @@ public class Perfil {
     private String profesion;
 
     @NotNull
-    private String acercaDe;
+        private String acercaDe;
 
     //Constructores
     public Perfil() {

@@ -30,15 +30,15 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/educacion")
-//@CrossOrigin(origins = "https://front-end-argentina-programa.web.app")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://front-end-argentina-programa.web.app")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class EducacionController {
 
 	@Autowired
 	EducacionService educacionService;
 
 	// trae todas las educaciones
-	@GetMapping("/lista")
+	@GetMapping("/list")
 	public ResponseEntity<List<Educacion>> list() {
 		List<Educacion> list = educacionService.list();
 		return new ResponseEntity(list, HttpStatus.OK);
@@ -55,7 +55,7 @@ public class EducacionController {
 	}
 
 	// borra educacion por id
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") int id) {
 		if (!educacionService.existsById(id)) {
@@ -66,7 +66,7 @@ public class EducacionController {
 	}
 
 	// crea nueva educacion
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/create")
 	public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeducacion, Educacion educacion) {
 		if (StringUtils.isBlank(dtoeducacion.getNombreEducacion())) {
@@ -87,9 +87,9 @@ public class EducacionController {
 	}
 
 	// actualiza educacion
-	@PreAuthorize("hasRole('ADMIN')")
-	@PutMapping("/update/{id}")
-	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoeducacion) {
+	//@PreAuthorize("hasRole('ADMIN')")
+		@PutMapping("/update/{id}")
+		public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoeducacion) {
 		if (!educacionService.existsById(id)) {
 			return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
 		}

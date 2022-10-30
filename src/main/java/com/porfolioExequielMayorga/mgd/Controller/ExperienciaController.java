@@ -31,15 +31,15 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/explab")
-//@CrossOrigin(origins = "https://front-end-argentina-programa.web.app")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://front-end-argentina-programa.web.app")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class ExperienciaController {
 
     @Autowired
     ExperienciaService experienciaService;
 
     // trae todas las experiencias
-    @GetMapping("/lista")
+    @GetMapping("/list")
     public ResponseEntity<List<Experiencia>> list() {
         List<Experiencia> list = experienciaService.list();
         return new ResponseEntity(list, HttpStatus.OK);
@@ -56,7 +56,7 @@ public class ExperienciaController {
     }
 
     // borra experiencia por id
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!experienciaService.existsById(id)) {
@@ -67,7 +67,7 @@ public class ExperienciaController {
     }
 
     // crea nueva experiencia
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp, Experiencia experiencia) {
         if (StringUtils.isBlank(dtoexp.getNombreExperiencia())) {
@@ -81,12 +81,23 @@ public class ExperienciaController {
                 dtoexp.getNombreExperiencia(),
                 dtoexp.getDescripcionExperiencia(),
                 dtoexp.getImagenExperiencia());
-        experienciaService.save(experiencia);
+
+        System.out.println("------------------------------------");
+        System.out.println("------------------------------------");
+        System.out.println("datos recibidos del FrontEnd");
+        System.out.println(experiencia.getId());
+        System.out.println(experiencia.getNombreExperiencia());
+        System.out.println(experiencia.getDescripcionExperiencia());
+        System.out.println(experiencia.getImagenExperiencia());
+        System.out.println("------------------------------------");
+        System.out.println("------------------------------------");
+
+        //experienciaService.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia agregada correctamente"), HttpStatus.OK);
     }
 
     // actualiza experiencia
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp) {
         // Validamos si existe el ID
