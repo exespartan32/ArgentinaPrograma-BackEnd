@@ -76,23 +76,20 @@ public class ExperienciaController {
         if (experienciaService.existsByNombreE(dtoexp.getNombreExperiencia())) {
             return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
         }
-
         experiencia = new Experiencia(
                 dtoexp.getNombreExperiencia(),
                 dtoexp.getDescripcionExperiencia(),
                 dtoexp.getImagenExperiencia());
-
-        System.out.println("------------------------------------");
-        System.out.println("------------------------------------");
-        System.out.println("datos recibidos del FrontEnd");
-        System.out.println(experiencia.getId());
-        System.out.println(experiencia.getNombreExperiencia());
-        System.out.println(experiencia.getDescripcionExperiencia());
-        System.out.println(experiencia.getImagenExperiencia());
-        System.out.println("------------------------------------");
-        System.out.println("------------------------------------");
-
-        //experienciaService.save(experiencia);
+//        System.out.println("------------------------------------");
+//        System.out.println("------------------------------------");
+//        System.out.println("datos recibidos del FrontEnd");
+//        System.out.println(experiencia.getId());
+//        System.out.println(experiencia.getNombreExperiencia());
+//        System.out.println(experiencia.getDescripcionExperiencia());
+//        System.out.println(experiencia.getImagenExperiencia());
+//        System.out.println("------------------------------------");
+//        System.out.println("------------------------------------");
+        experienciaService.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia agregada correctamente"), HttpStatus.OK);
     }
 
